@@ -1,0 +1,28 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+.bg{
+  background-color: #C2F800;
+}
+.text-color{
+  color: #C2F800;
+}
+
+:root {
+  --background: black;
+  --foreground: #171717;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
