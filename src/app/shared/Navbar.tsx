@@ -13,7 +13,7 @@ const Navbar = () => {
         {/* part2 */}
             <div className='flex gap-6 '>
                 <Link className=' text-[#C2F800] bg-[#393f26] p-1 px-2 py-2 rounded-[50] text-[11px] ' href=''>Workouts</Link>
-                <Link className='text-[11px] p-1 px-2 py-2' href=''>My Plan</Link>
+                <Link className='text-[11px] text-gray-500 p-1 px-2 py-2' href=''>My Plan</Link>
             </div>
         {/* part3 */}
             <div className='flex gap-2'>

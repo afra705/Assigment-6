@@ -4,7 +4,8 @@ import banner from '@/assets/banner.png';
 
 const Banner = () => {
     return (
-        <header className='flex md:gap-30 lg:gap-40 p-20 flex-col-reverse md:flex-row'>
+      <section className='bg-[#222630] m-10 rounded-2xl'>
+          <header className=' flex md:gap-30 lg:gap-40 p-20 flex-col-reverse md:flex-row'>
             {/* part1 */}
             <div className='w-full md:w-1/2'>
                 <p className='text-color'>WORKOUT LIBRARY</p>
@@ -19,6 +20,7 @@ const Banner = () => {
                 <Image src={banner} alt='banner' height={600} width={400}/>
             </div>
         </header>
+      </section>
     );
 };
 
