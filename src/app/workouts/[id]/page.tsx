@@ -1,7 +1,9 @@
-/* eslint-disable react/no-unescaped-entities */
+ 
+import SavedBtn from "@/app/components/SavedBtn";
+import WorkoutBtn from "@/app/components/WorkoutBtn";
 import { IWorkout } from "@/app/type/type";
 import Image from "next/image";
-import { FaBookmark, FaFileDownload } from "react-icons/fa";
+
 
 interface IDetailsProps {
   params: Promise<{
@@ -12,24 +14,23 @@ interface IDetailsProps {
 const WorkoutDetails = async ({ params }: IDetailsProps) => {
   const { id } = await params;
   const res = await fetch(`https://api.abcz.workers.dev/api/fitlog/${id}`);
-  const data = await res.json();
+  const workout:IWorkout = await res.json();
 
-  const workout: IWorkout = data;
 
   return (
    <section className="lg:w-7xl mx-auto">
-     <div className="grid grid-cols-2 mt-6  white card lg:card-side shadow-sm">
+     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mt-6 white card lg:card-side shadow-sm">
       <figure>
         <Image
           src={workout.image}
           alt="Album"
           width={400}
           height={700}
-          className="h-167.5 w-115 rounded-2xl"
+          className="w-full max-w-115 h-auto lg:h-167.5 rounded-2xl object-cover"
         />
       </figure>
 {/*  */}
-      <div className="mr-20">
+      <div className="p-5 lg:mr-20">
               <div className="mt-14">
         <h2 className="text-3xl font-bold font-stretch-extra-condensed">
           {workout.name}
@@ -93,8 +94,8 @@ const WorkoutDetails = async ({ params }: IDetailsProps) => {
         </div>
         {/* btn */}
         <div className="flex gap-2">
-          <button className="bg p-3 px-6 text-black font-bold rounded-2xl flex items-center gap-2"><FaFileDownload />Add to today's plan</button>
-          <button className="border px-6 border-gray-500 rounded-2xl white p-3 flex items-center gap-2"><FaBookmark /> Save for later</button>
+          <WorkoutBtn workout={workout}/>
+          <SavedBtn workout={workout}/>
         </div>
       </div>
       </div>

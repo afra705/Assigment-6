@@ -13,7 +13,7 @@ const WorkoutCard = ({ workout }: { workout: IWorkout }) => {
 
   return (
    <Link href={`./workouts/${workout.id}`}>
-         <div  className="card bg-[#222630] mt-10 w-100 h-100 shadow-sm">
+ <div  className="card bg-[#222630] mt-10 w-100 h-100 shadow-sm">
       <figure>
         <Image src={workout.image} alt="image" width={400} height={100} />
       </figure>
