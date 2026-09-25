@@ -8,9 +8,10 @@ import { AiFillLike } from "react-icons/ai";
 import { FaStar } from "react-icons/fa";
 import { TiDelete } from "react-icons/ti";
 import { toast } from "react-toastify";
+import { IWorkout } from "../type/type";
 
 
-const SavedCard = () => {
+const SavedCard = ({sortedSaved}:{sortedSaved:IWorkout[]}) => {
   const { saved,setSaved } = useContext(WorkoutContext);
   
 
@@ -24,8 +25,8 @@ const handleDelete = (id: number) => {
 
   return (
     <div className="grid grid-cols-1">
-      {saved.length > 0 ? (
-         saved.map((item)=>{
+      {sortedSaved.length > 0 ? (
+         sortedSaved.map((item)=>{
             return   <div key={item.id} className="bg-[#15181f] border border-gray-800 rounded-xl p-3 mt-4 w-300">
       <div className="flex items-center gap-4">
 
@@ -90,7 +91,7 @@ const handleDelete = (id: number) => {
          })
       ) : (
         (<div className="p-40 border text-center border-gray-800">
-            <h2 className="font-bold text-3xl">NOTHING HERE YET</h2>
+            <h2 className="font-bold text-3xl  text-white">NOTHING HERE YET</h2>
             <p className="text-gray-500 mt-2 mb-2">Browse the library and add a lift to get today moving.</p>
             <Link href='./workouts'>
                 <button className="bg text-black p-3 rounded-2xl font-bold text-[12px]">Go to workouts</button>
