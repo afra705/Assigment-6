@@ -1,8 +1,9 @@
-import React from "react";
-import TodaysPlanCard from "../components/TodaysPlanCard";
-import { IWorkout } from "../type/type";
 
-const Plan = ({workout}:{workout:IWorkout}) => {
+import SavedCard from "../components/SavedCard";
+import TodaysPlanCard from "../components/TodaysPlanCard";
+
+
+const Plan = () => {
   return (
     <div className="lg:w-7xl mx-auto white m-10">
       {/* part1 */}
@@ -22,7 +23,7 @@ const Plan = ({workout}:{workout:IWorkout}) => {
 
       {/* part3 */}
       {/* name of each tab group should be unique */}
-      <div className="tabs mt-40 ">
+      <div className="tabs tabs-lift mt-40 ">
         <input
           type="radio"
           name="my_tabs_3"
@@ -30,7 +31,7 @@ const Plan = ({workout}:{workout:IWorkout}) => {
           aria-label="Today's Plan"
         />
         <div className="tab-content p-6">
-           <TodaysPlanCard workout={workout}/>
+           <TodaysPlanCard />
         </div>
 
         <input
@@ -41,7 +42,7 @@ const Plan = ({workout}:{workout:IWorkout}) => {
           defaultChecked
         />
         <div className="tab-content p-6">
-          Tab content 2
+         <SavedCard/>
         </div>
 
       </div>

@@ -1,5 +1,5 @@
 "use client";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { WorkoutContext } from "../context/Context";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,25 +10,22 @@ import { TiDelete } from "react-icons/ti";
 import { toast } from "react-toastify";
 
 
-const TodaysPlanCard = () => {
-  const { myPlan,setMyPlan } = useContext(WorkoutContext);
-  const [mark, setMark]= useState<number[]>([]);
-  const handleMark =(id:number)=>{
-      setMark((item) => ([...item,id]))
-  }
+const SavedCard = () => {
+  const { saved,setSaved } = useContext(WorkoutContext);
+  
 
 const handleDelete = (id: number) => {
-  const deletedWorkout = myPlan.find((item) => item.id === id);
+  const deletedWorkout = saved.find((item) => item.id === id);
 
   toast.warning(`${deletedWorkout?.name} is deleted.`);
 
-  setMyPlan((prev) => prev.filter((item) => item.id !== id));
+  setSaved((prev) => prev.filter((item) => item.id !== id));
 };
 
   return (
     <div className="grid grid-cols-1">
-      {myPlan.length > 0 ? (
-         myPlan.map((item)=>{
+      {saved.length > 0 ? (
+         saved.map((item)=>{
             return   <div key={item.id} className="bg-[#15181f] border border-gray-800 rounded-xl p-3 mt-4 w-300">
       <div className="flex items-center gap-4">
 
@@ -82,10 +79,6 @@ const handleDelete = (id: number) => {
             </button>
           </Link>
 
-          <button onClick={()=>handleMark(item.id)} className="bg-[#c2f800] text-black font-bold rounded-full px-4 py-2 text-xs">
-           {mark.includes(item.id)? 'Marked' : ' ✓ Mark as Done'}
-          </button>
-
           <button onClick={()=>handleDelete(item.id)} className="text-gray-500 text-lg px-2">
             <TiDelete/>
           </button>
@@ -108,4 +101,4 @@ const handleDelete = (id: number) => {
   );
 };
 
-export default TodaysPlanCard;
+export default SavedCard;

@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "./shared/Navbar";
 import WorkoutProvider from "./context/Context";
 import { ToastContainer } from "react-toastify";
-
+import "react-toastify/dist/ReactToastify.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
