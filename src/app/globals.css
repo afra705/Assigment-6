@@ -10,6 +10,9 @@
 .white{
   color: white;
 }
+html {
+  scroll-behavior: smooth;
+}
 :root {
   --background: black;
   --foreground: #171717;

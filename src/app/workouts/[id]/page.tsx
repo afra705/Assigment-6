@@ -26,7 +26,7 @@ const WorkoutDetails = async ({ params }: IDetailsProps) => {
           alt="Album"
           width={400}
           height={700}
-          className="w-full max-w-115 h-auto lg:h-167.5 rounded-2xl object-cover"
+          className="w-full max-w-115 h-auto lg:h-167.5 md:h-167.5 rounded-2xl object-cover"
         />
       </figure>
 {/*  */}

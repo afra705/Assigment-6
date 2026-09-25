@@ -15,7 +15,8 @@ const TodaysPlanCard = ({sortedMyPlan}:{sortedMyPlan: IWorkout[]}) => {
   const { myPlan,setMyPlan } = useContext(WorkoutContext);
   const [mark, setMark]= useState<number[]>([]);
   const handleMark =(id:number)=>{
-      setMark((item) => ([...item,id]))
+      setMark((item) => ([...item,id]));
+      toast.success(`Marked as done.`)
   }
 
 const handleDelete = (id: number) => {
@@ -25,8 +26,6 @@ const handleDelete = (id: number) => {
 
   setMyPlan((prev) => prev.filter((item) => item.id !== id));
 };
-
-
 
   return (
     <>

@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 
-'use client';
+"use client";
 
 import { useContext, useState } from "react";
 import SavedCard from "../components/SavedCard";
@@ -23,7 +23,9 @@ const Plan = () => {
     if (sortBy === "duration") {
       sortedWorkout.sort((a, b) => b.duration - a.duration);
     } else if (sortBy === "calories") {
-      sortedWorkout.sort((a, b) => b.caloriesBurned - a.caloriesBurned);
+      sortedWorkout.sort(
+        (a, b) => b.caloriesBurned - a.caloriesBurned
+      );
     } else {
       sortedWorkout.sort((a, b) => b.rating - a.rating);
     }
@@ -35,30 +37,31 @@ const Plan = () => {
   const sortedSaved = sortWorkout(saved);
 
   return (
-    <div className="lg:w-7xl w-full mx-auto m-10">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
 
-      {/* Title */}
       <div>
-        <h1 className="text-4xl font-bold white">MY PLAN</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold white">
+          MY PLAN
+        </h1>
 
-        <p className="text-gray-500">
+        <p className="text-gray-500 text-sm sm:text-base mt-2">
           Cap of five lifts for today. Finish them, then load more.
         </p>
       </div>
 
 
-      {/* SUMMARY */}
-      <div className="flex justify-between text-white bg-[#15181f] border border-gray-800 rounded-xl p-5 mt-8">
+      {/*SUMMARY */}
+      <div className="grid grid-cols-3 gap-2 sm:gap-4 text-white bg-[#15181f] border border-gray-800 rounded-xl p-4 sm:p-5 mt-6 sm:mt-8">
 
         {/* Exercise */}
-        <div>
-          <span className="text-gray-500 text-sm">
+        <div className="text-center sm:text-left">
+          <span className="text-gray-500 text-xs sm:text-sm">
             Exercise
           </span>
 
           <br />
 
-          <span className="font-bold text-xl">
+          <span className="font-bold text-lg sm:text-xl">
             {activeTab === "today"
               ? myPlan.length
               : saved.length}
@@ -67,14 +70,14 @@ const Plan = () => {
 
 
         {/* Minute */}
-        <div>
-          <span className="text-gray-500 text-sm">
+        <div className="text-center sm:text-left">
+          <span className="text-gray-500 text-xs sm:text-sm">
             Minute
           </span>
 
           <br />
 
-          <span className="font-bold text-xl">
+          <span className="font-bold text-lg sm:text-xl">
             {activeTab === "today"
               ? myPlan.reduce(
                   (total, workout) =>
@@ -91,14 +94,14 @@ const Plan = () => {
 
 
         {/* Calories */}
-        <div>
-          <span className="text-gray-500 text-sm">
+        <div className="text-center sm:text-left">
+          <span className="text-gray-500 text-xs sm:text-sm">
             Calories
           </span>
 
           <br />
 
-          <span className="font-bold text-xl">
+          <span className="font-bold text-lg sm:text-xl">
             {activeTab === "today"
               ? myPlan.reduce(
                   (total, workout) =>
@@ -116,8 +119,8 @@ const Plan = () => {
       </div>
 
 
-      {/* SORT */}
-      <div className="w-full flex justify-end mt-8">
+      {/* sort */}
+      <div className="w-full flex justify-end mt-6 sm:mt-8">
 
         <div className="flex items-center gap-2">
 
@@ -135,7 +138,7 @@ const Plan = () => {
                   | "rating"
               )
             }
-            className="select select-sm h-9 min-h-0 w-32 rounded-lg border border-gray-800 bg-[#15171d] px-3 text-xs text-gray-300 outline-none"
+            className="select select-sm h-9 min-h-0 w-28 sm:w-32 rounded-lg border border-gray-800 bg-[#15171d] px-2 sm:px-3 text-xs text-gray-300 outline-none"
           >
             <option value="duration">
               Duration
@@ -155,13 +158,13 @@ const Plan = () => {
       </div>
 
 
-      {/* TABS */}
-      <div className="flex mt-6 mb-10">
+      {/* tabs */}
+      <div className="flex mt-5 sm:mt-6 mb-6 sm:mb-10">
 
         {/* Today's Plan */}
         <button
           onClick={() => setActiveTab("today")}
-          className={`w-32 py-3 rounded-l-2xl text-sm font-semibold ${
+          className={`w-1/2 sm:w-32 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold rounded-l-2xl ${
             activeTab === "today"
               ? "bg-[#c2f800] text-black"
               : "bg-gray-900 text-gray-400"
@@ -174,7 +177,7 @@ const Plan = () => {
         {/* Saved */}
         <button
           onClick={() => setActiveTab("saved")}
-          className={`w-32 py-3 rounded-r-2xl text-sm font-semibold ${
+          className={`w-1/2 sm:w-32 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold rounded-r-2xl ${
             activeTab === "saved"
               ? "bg-[#c2f800] text-black"
               : "bg-gray-900 text-gray-400"
@@ -186,17 +189,21 @@ const Plan = () => {
       </div>
 
 
-      {/* CONTENT */}
+      {/* content */}
 
-      {activeTab === "today" ? (
-        <TodaysPlanCard
-          sortedMyPlan={sortedMyPlan}
-        />
-      ) : (
-        <SavedCard
-          sortedSaved={sortedSaved}
-        />
-      )}
+      <div className="w-full overflow-x-auto">
+
+        {activeTab === "today" ? (
+          <TodaysPlanCard
+            sortedMyPlan={sortedMyPlan}
+          />
+        ) : (
+          <SavedCard
+            sortedSaved={sortedSaved}
+          />
+        )}
+
+      </div>
 
     </div>
   );
