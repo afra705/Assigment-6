@@ -8,8 +8,6 @@ import Link from "next/link";
 
 const WorkoutCard = ({ workout }: { workout: IWorkout }) => {
 
-  
-
 
   return (
    <Link href={`./workouts/${workout.id}`}>
@@ -29,7 +27,7 @@ const WorkoutCard = ({ workout }: { workout: IWorkout }) => {
         </span>
       ))}
     </div>
-        <h2 className="card-title">{workout.name}</h2>
+        <h2 className="card-title text-white">{workout.name}</h2>
         <p className="text-gray-500">{workout.equipment}</p>
         {/*  */}
         <hr className="border-gray-700" />
