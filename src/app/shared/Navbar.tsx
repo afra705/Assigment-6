@@ -9,7 +9,7 @@ const Navbar = () => {
   const { myPlan, saved } = useContext(WorkoutContext);
 
   return (
-    <div className="border-b-2 sticky top-0 z-50 bg-black">
+    <div className="border-b-2 border-gray-800 sticky top-0 z-50 bg-black">
       <nav className="mx-4 sm:mx-6 md:mx-8 py-4 flex items-center justify-between text-white">
 
         {/* Logo */}

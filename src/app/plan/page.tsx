@@ -61,7 +61,7 @@ const Plan = () => {
 
           <br />
 
-          <span className="font-bold text-lg sm:text-xl">
+          <span className="font-bold text-lg text-color sm:text-xl">
             {activeTab === "today"
               ? myPlan.length
               : saved.length}
